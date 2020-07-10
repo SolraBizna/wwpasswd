@@ -1,4 +1,4 @@
-This is a small, interactive utility that hashes a password for use in the WW project management system. WW is not currently available to the public, but this utility still serves as a simple real-world sample usage of the `dialog`, `base64`, and `lsx` crates.
+This is a small, interactive utility that hashes a password for use in the WW project management system. WW is not currently available to the public, but this utility still serves as a simple real-world sample usage of the `dialog` and `lsx` crates.
 
 # License
 

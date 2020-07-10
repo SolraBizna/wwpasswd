@@ -1,6 +1,6 @@
 [package]
 name = "wwpasswd"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Solra Bizna <solra@bizna.name>"]
 edition = "2018"
 description = "A small, interactive utility that hashes a password for use in the WW project management system"

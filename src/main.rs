@@ -40,6 +40,19 @@ fn get_password() -> String {
     }
 }
 
+fn blob_encode(bytes: &[u8]) -> String {
+    const HEXDIGITS: &[u8] = b"0123456789ABCDEF";
+    let mut ret = String::with_capacity(bytes.len()*2+3);
+    ret.push('X');
+    ret.push('\'');
+    for c in bytes {
+        ret.push(HEXDIGITS[(c >> 4) as usize] as char);
+        ret.push(HEXDIGITS[(c & 15) as usize] as char);
+    }
+    ret.push('\'');
+    ret
+}
+
 fn main() {
     let username = get_username();
     let password = get_password();
@@ -52,5 +65,5 @@ fn main() {
     sha.update(username.as_bytes());
     sha.update(&salt[..]);
     println!("Paste this to the WW admin:\nSalt: {}\nHash: {}",
-             base64::encode(&salt[..]), base64::encode(&sha.finish(&[])[..]));
+             blob_encode(&salt[..]), blob_encode(&sha.finish(&[])[..]));
 }
